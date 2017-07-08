@@ -3,15 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+         #
+#    By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/03 08:31:22 by jkalia            #+#    #+#              #
-#    Updated: 2017/07/08 12:11:17 by jkalia           ###   ########.fr        #
+#    Updated: 2017/07/08 14:46:31 by rpassafa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = ft_retro
-SRCS = main.cpp menu.cpp
+SRCS = main.cpp menu.cpp game.cpp tester.cpp
 HDRS =
 
 OBJS = $(SRCS:.cpp=.o)

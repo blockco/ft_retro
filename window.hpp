@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   window.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rpassafa <rpassafa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/08 12:02:41 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/08 15:05:29 by rpassafa         ###   ########.fr       */
+/*   Created: 2017/07/08 14:49:56 by rpassafa          #+#    #+#             */
+/*   Updated: 2017/07/08 14:55:42 by rpassafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "menu.hpp"
-#include "window.hpp"
+#ifndef WINDOW_HPP
+#define WINDOW_HPP
 
-int main(void)
-{
-  menu();
-  // test();
-  return (0);
-}
+#include <ncurses.h>
+int test(void);
+
+#endif
