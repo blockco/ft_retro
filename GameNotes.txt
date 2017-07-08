@@ -1,0 +1,12 @@
+
+Objects in this game are:
+
+
+- The spaceship.	
+- Enemies
+- Bullet.
+
+Spaceship:
+- Position
+- Movement(Up and Down)
+- Firing
