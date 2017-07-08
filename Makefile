@@ -6,21 +6,21 @@
 #    By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/03 08:31:22 by jkalia            #+#    #+#              #
-#    Updated: 2017/07/08 15:09:39 by jkalia           ###   ########.fr        #
+#    Updated: 2017/07/08 15:49:08 by jkalia           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = ft_retro
 SRCS = main.cpp menu.cpp game.cpp
-HDRS = game.hpp
+HDRS = game.hpp menu.hpp
 
 OBJS = $(SRCS:.cpp=.o)
 LIBS =
 
 CXXFLAGS += -std=c++98
-CPPFLAGS += -Wall -Wextra -Werror
+#CPPFLAGS += -Wall -Wextra -Werror
 CFLAGS +=
-LDFLAGS += -Wall -Wextra -Werror -lncurses
+LDFLAGS += -Wall -Wextra -Werror -lmenu -lncurses
 
 CXX = clang++
 
