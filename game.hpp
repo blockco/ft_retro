@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   game.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/08 12:02:41 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/08 15:57:59 by jkalia           ###   ########.fr       */
+/*   Created: 2017/07/08 14:40:51 by jkalia            #+#    #+#             */
+/*   Updated: 2017/07/08 15:17:02 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "menu.hpp"
-#include "window.hpp"
+#ifndef GAME_HPP
 
-int main(void)
-{
-  menu();
-  // test();
-  return (0);
-}
+class Game {
+	private:
+		static void GameLoop();
+		enum GameState { Uninitialized,
+			ShowingMenu, Playing, Exiting };
+		static GameState _gameState;
+
+	public:
+		static void Start();
+		GameState getGameState() const;
+};
+#endif
