@@ -6,15 +6,18 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 18:02:34 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/08 18:31:13 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/08 18:40:23 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GameObject_CLASS_HPP
 #define GameObject_CLASS_HPP
-#include <ncurses.h>
+#include "Env.class.hpp"
 
-class GameObject{
+#include <ncurses.h>
+#include <string.h>
+
+class GameObject : public Env {
 public:
 	GameObject();
 	~GameObject();
