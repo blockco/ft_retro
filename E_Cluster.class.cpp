@@ -20,6 +20,8 @@ bool E_Cluster::PlayerCollision(int h, int min_w, int max_w) {
   int enemy_h;
   int enemy_w;
   while (i < this->_size) {
+	if (this->_clust[i].getstate() == false)
+		return false;
     enemy_h = this->_clust[i].get_h();
     enemy_w = this->_clust[i].get_w();
     if ((enemy_h == h) && ((enemy_w >= min_w) && (enemy_w <= max_w)))
@@ -40,6 +42,7 @@ bool E_Cluster::BulletCollision(int h, int w) {
     if (enemy_h == h && enemy_w == w)
 	{
 		this->_clust[i].setstate(false);
+		Env::_score += 100;
 	}
     ++i;
   }

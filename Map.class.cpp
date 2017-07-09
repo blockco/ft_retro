@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/09 12:52:47 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/09 15:55:45 by rpassafa         ###   ########.fr       */
+/*   Updated: 2017/07/09 16:20:13 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ Map::~Map() {}
 void Map::UpdateGame(int ch) {
   rob.Action(ch);
   clust.Action();
-  //charlie.Action();
 }
 
 void Map::PrintGame() {
@@ -37,7 +36,6 @@ void Map::PrintGame() {
 	mvprintw(2, 40, "%s", score.c_str());
   rob.Print();
   clust.Print();
-  //charlie.Print();
 }
 
 void Map::CheckGame() {
@@ -49,6 +47,7 @@ void Map::CheckGame() {
   player_h = rob.get_h();
   player_min_w = rob.get_w();
   player_max_w = player_min_w + rob.get_maxwidth();
+  rob.CollisionCheck(clust);
   if (clust.PlayerCollision(player_h, player_min_w, player_max_w) == true)
     _start.EnvExit();
 }
@@ -57,5 +56,4 @@ void Map::Turn(int ch) {
   this->UpdateGame(ch);
   this->CheckGame();
   this->PrintGame();
-  //charlie.Fire(50, 50);
 }
