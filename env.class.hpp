@@ -1,26 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game.hpp                                           :+:      :+:    :+:   */
+/*   env.class.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/08 14:40:51 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/08 15:17:02 by jkalia           ###   ########.fr       */
+/*   Created: 2017/07/08 15:58:51 by jkalia            #+#    #+#             */
+/*   Updated: 2017/07/08 16:40:17 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GAME_HPP
+#include <ncurses.h>
+#include <stdlib.h>
+#include <iostream>
+#ifndef ENV_HPP
+#define ENV_HPP
 
-class Game {
+class Env {
 	private:
-		static void GameLoop();
-		enum GameState { Uninitialized,
+		void GameLoop();
+		void EnvExit();
+		void EnvInit();
+		enum EnvState { Uninitialized,
 			ShowingMenu, Playing, Exiting };
-		static GameState _gameState;
+		static EnvState _envstate;
 
 	public:
-		static void Start();
-		GameState getGameState() const;
+		Env();
+		~Env();
+		Env(const Env& env);
+		Env& operator=(const Env &src);
+		void Start();
+		EnvState GetEnvState() const;
+		void  SetEnvState(EnvState &in);
+	
+	protected:
+		WINDOW *win;
+		int		winh;
+		int		winw;
 };
 #endif
