@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 18:08:14 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/08 18:37:15 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/09 12:25:14 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,7 @@ public:
 	~Player();
 	Player(int h, int w);
 	void Action(int num);
+	int get_h() const;
+	int get_w() const;
 };
 #endif

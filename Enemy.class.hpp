@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 17:55:32 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/08 22:23:04 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/09 12:28:16 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ public:
 	void Random();
 	void setw(int w);
 	void seth(int h);
+	static float nums[8];
 };
 #endif

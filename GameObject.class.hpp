@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 18:02:34 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/08 21:37:50 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/09 12:30:26 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class GameObject : public Env
 	protected:
 		float _h;
 		float _w;
+		float _velocity;
 		char	*_image;
 };
 #endif

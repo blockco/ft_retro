@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 15:58:51 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/08 21:38:10 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/09 12:01:38 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ class Env {
 		static int		_winw;
 		static const int FPS;
 		static const int SkipTicks;
+		long long _time;
 	
 	protected:
 		WINDOW *win;

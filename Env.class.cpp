@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 15:58:42 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/08 22:32:39 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/09 12:04:34 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,16 +70,18 @@ long long	Env::GetTimeMs()
 const int Env::FPS = 10;
 const int Env::SkipTicks = 1000 / Env::FPS;
 
-void UpdateGame(E_Cluster &clust, Player &rob, int ch)
+void UpdateGame(Env &env, E_Cluster &clust, Player &rob, int ch)
 {
 		rob.Action(ch);
+	if (env._time > 2)
 		clust.Action();
 }
 
-void PrintGame(E_Cluster &clust, Player &rob)
+void PrintGame(Env &env, E_Cluster &clust, Player &rob)
 {
+	rob.Print();
+	if (env._time > 2)
 		clust.Print();
-		rob.Print();
 }
 
 void Env::GameLoop()
@@ -87,8 +89,10 @@ void Env::GameLoop()
 	long long next_game_tick = GetTimeMs();
 	int		ch;
 	int		sleep_time = 0;
+	int		delta_t;
 	Player rob(_winh, _winw);
 	E_Cluster clust(100);
+	delta_t = time(NULL);
 	while (1)
 	{
 		ch = getch();
@@ -96,8 +100,9 @@ void Env::GameLoop()
 		if (ch == KEY_ESC)
 			EnvExit();
 		clear();
-		UpdateGame(clust, rob, ch);
-		PrintGame(clust, rob);
+		_time = time(NULL) - delta_t;
+		UpdateGame(*this, clust, rob, ch);
+		PrintGame(*this, clust, rob);
 		next_game_tick += SkipTicks;
 		sleep_time = next_game_tick - GetTimeMs();
 		if( sleep_time >= 0 ) {

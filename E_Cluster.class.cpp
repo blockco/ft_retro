@@ -11,22 +11,8 @@ E_Cluster::E_Cluster(int _size)
 	{
 		this->_clust[i].Random();
 		i++;
-		_clust[i].setw(rand() % 100);
-		_clust[i].seth(rand() % 50);
-	}
-}
-E_Cluster::E_Cluster()
-{
-	int 	i;
-	int		h;
-	int		w;
-	i = 0;
-	this->_size = 10;
-	this->_clust = new Enemy[10];
-	while (i < this->_size)
-	{
-		this->_clust[i].Random();
-		i++;
+		_clust[i].setw(rand() % Env::_winw);
+		_clust[i].seth(rand() % 20);
 	}
 }
 
