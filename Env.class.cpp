@@ -1,18 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   env.class.cpp                                      :+:      :+:    :+:   */
+/*   Env.class.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 15:58:42 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/08 18:31:03 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/08 18:34:31 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "env.class.hpp"
+#include "Env.class.hpp"
 #include "Player.class.hpp"
-#include "menu.hpp"
 
 Env::EnvState Env::_envstate = Uninitialized;
 Env::EnvState Env::GetEnvState() const { return _envstate; }

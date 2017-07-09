@@ -6,13 +6,13 @@
 #    By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/03 08:31:22 by jkalia            #+#    #+#              #
-#    Updated: 2017/07/08 18:26:42 by jkalia           ###   ########.fr        #
+#    Updated: 2017/07/08 18:34:06 by jkalia           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = ft_retro
-SRCS = main.cpp env.class.cpp Player.class.cpp GameObject.class.cpp
-HDRS =
+SRCS = main.cpp Env.class.cpp Player.class.cpp GameObject.class.cpp
+HDRS = 
 OBJS = $(SRCS:.cpp=.o)
 LIBS =
 
