@@ -10,7 +10,7 @@ E_Cluster::E_Cluster() {
     this->_clust[i].Random();
     i++;
     _clust[i].setw(rand() % Env::_winw);
-    _clust[i].seth(10);
+    _clust[i].seth(5);
   }
 }
 

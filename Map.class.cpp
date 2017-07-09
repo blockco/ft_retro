@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Map.class.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
+/*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/09 12:52:47 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/09 14:53:19 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/09 15:50:21 by rpassafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,14 @@ void Map::UpdateGame(int ch) {
 }
 
 void Map::PrintGame() {
+	int i = 0;
+	std::string score = std::to_string(Env::_time);
+	while(i < Env::_winw)
+	{
+		mvprintw(5, i, "%s", "=");
+		i++;
+	}
+	mvprintw(2, 40, "%s", score.c_str());
   rob.Print();
   clust.Print();
   //charlie.Print();
@@ -36,6 +44,7 @@ void Map::CheckGame() {
   int player_h;
   int player_min_w;
   int player_max_w;
+
 
   player_h = rob.get_h();
   player_min_w = rob.get_w();
