@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 15:58:42 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/08 21:58:44 by rpassafa         ###   ########.fr       */
+/*   Updated: 2017/07/08 22:00:18 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,35 @@ void Env::EnvExit()
   exit(0);
 }
 
+long long	Env::GetTimeMs()
+{
+	struct timeval tv;
+
+	gettimeofday(&tv, NULL);
+	return (long long)(tv.tv_sec) * 1000 +
+		(long long)(tv.tv_usec) / 1000;
+}
+
+const int Env::FPS = 10;
+const int Env::SkipTicks = 1000 / Env::FPS;
+
+void UpdateGame(E_Cluster &clust, Player &rob, int ch)
+{
+		rob.Action(ch);
+		clust.Action();
+}
+
+void PrintGame(E_Cluster &clust, Player &rob)
+{
+		clust.Print();
+		rob.Print();
+}
+
 void Env::GameLoop()
 {
+	long long next_game_tick = GetTimeMs();
 	int		ch;
+	int		sleep_time = 0;
 	Player rob(_winh, _winw);
 	Enemy bob;
 	E_Cluster clust(100);
@@ -70,12 +96,18 @@ void Env::GameLoop()
 	{
 		ch = getch();
 		clear();
-		rob.Action(ch);
-		clust.Action();
-		rob.Print();
-		clust.Print();
 		if (ch == KEY_ESC)
 			EnvExit();
-	usleep(10000);
+		clear();
+		UpdateGame(clust, rob, ch);
+		PrintGame(clust, rob);
+		next_game_tick += SkipTicks;
+		sleep_time = next_game_tick - GetTimeMs();
+		if( sleep_time >= 0 ) {
+			usleep( sleep_time );
+		}
+		else {
+			continue;
+		}
 	}
 }

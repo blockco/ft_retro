@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 18:02:34 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/08 20:06:40 by rpassafa         ###   ########.fr       */
+/*   Updated: 2017/07/08 21:37:50 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,15 @@
 #include <ncurses.h>
 #include <string.h>
 
-class GameObject : public Env {
-public:
-	GameObject();
-	~GameObject();
-	void Print();
-protected:
-	float _h;
-	float _w;
-	char	*_image;
+class GameObject : public Env 
+{
+	public:
+		GameObject();
+		~GameObject();
+		void Print();
+	protected:
+		float _h;
+		float _w;
+		char	*_image;
 };
 #endif
