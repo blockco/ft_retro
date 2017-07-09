@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Env.class.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
+/*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 15:58:51 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/09 13:32:48 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/09 14:36:38 by rpassafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ class Env {
 		static const int FPS;
 		static const int SkipTicks;
 		static long long _time;
-	
+
 	protected:
 		WINDOW *win;
 };
