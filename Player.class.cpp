@@ -6,12 +6,11 @@
 /*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 18:08:05 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/09 13:57:52 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/09 14:07:53 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Player.class.hpp"
-#include "Bullet.class.hpp"
 
 Player::Player() {
   this->_score = 0;

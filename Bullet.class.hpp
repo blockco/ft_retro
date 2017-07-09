@@ -5,9 +5,9 @@
 
 class Bullet : public Player {
 public:
-	Bullet(Player& player);
+	Bullet();
 	~Bullet();
-	void Fired(Player& player);
+	void Fired(int _inh, int _inw);
 	bool Action();
 private:
 	bool _state;
