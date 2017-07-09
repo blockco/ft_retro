@@ -6,11 +6,12 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 15:58:42 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/08 16:41:36 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/08 17:39:27 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "env.class.hpp"
+#include "Character.class.hpp"
 #include "menu.hpp"
 
 Env::EnvState Env::_envstate = Uninitialized;
@@ -28,6 +29,7 @@ void Env::Start(void)
 	if (_envstate != Uninitialized)
 		return;
 	EnvInit();
+	GameLoop();
 	EnvExit();
 //	while (_envstate != Exiting)
 //	{
@@ -49,6 +51,7 @@ void Env::EnvInit()
 	//printw("Hello World !!!"); /* Print Hello World		  */
 	curs_set(0);
 	nodelay(stdscr, TRUE);
+	/**
 	whline(win, ACS_HLINE, 100);
 	for (;;) {
 		if ((ch = getch()) == ERR) {
@@ -63,6 +66,7 @@ void Env::EnvInit()
 	}
 //	Menu start;
 //	start.menu();
+	**/
 
 }
 
@@ -74,10 +78,16 @@ void Env::EnvExit()
 
 void Env::GameLoop()
 {
+	int		ch;
+	Character rob(winh, winw);
 	while (1)
 	{
-		if (_envstate == Exiting)
-		{
+		if ((ch = getch()) == ERR)
+			rob.Printship();
+		else {
+			clear();
+			rob.Move(ch);
 		}
 	}
 }
+
