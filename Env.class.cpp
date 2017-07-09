@@ -6,13 +6,14 @@
 /*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 15:58:42 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/08 21:01:58 by rpassafa         ###   ########.fr       */
+/*   Updated: 2017/07/08 21:44:26 by rpassafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Env.class.hpp"
 #include "Player.class.hpp"
 #include "Enemy.class.hpp"
+#include "E_Cluster.class.hpp"
 #include <unistd.h>
 
 Env::EnvState Env::_envstate = Uninitialized;
@@ -22,7 +23,7 @@ int			Env::_winw = 0;
 int			Env::_winh = 0;
 
 Env::Env() {
-	srand(time(0));
+	srand(time(NULL));
 }
 Env::~Env() {}
 Env::Env(const Env& src) { *this = src; }
@@ -60,23 +61,19 @@ void Env::EnvExit()
 void Env::GameLoop()
 {
 	int		ch;
-	int i = 0;
 	Player rob(_winh, _winw);
 	Enemy bob;
+	E_Cluster clust;
 	usleep(60000);
 	Enemy jim;
 	while (1)
 	{
-		i++;
 		ch = getch();
 		clear();
 		rob.Action(ch);
-		if (i > 10)
-			jim.Action();
-		bob.Action();
-		jim.Print();
+		clust.Action();
 		rob.Print();
-		bob.Print();
+		clust.Print();
 		if (ch == KEY_ESC)
 			EnvExit();
 	usleep(10000);
