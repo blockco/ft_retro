@@ -12,13 +12,8 @@
 
 #include "GameObject.class.hpp"
 
-GameObject::GameObject()
-{}
+GameObject::GameObject() {}
 
-GameObject::~GameObject()
-{}
+GameObject::~GameObject() {}
 
-void GameObject::Print()
-{
-	mvprintw(this->_h, this->_w, "%s", this->_image);
-}
+void GameObject::Print() { mvprintw(this->_h, this->_w, "%s", this->_image); }

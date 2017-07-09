@@ -10,14 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Env.class.hpp"
-#include <ctime>
 #include <cstdlib>
+#include <ctime>
+#include "Env.class.hpp"
 
-int main(void)
-{
-	Env start;
-	start.Start();
+int main(void) {
+  Env start;
+  start.Start();
 
   return (0);
 }

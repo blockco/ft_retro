@@ -11,105 +11,90 @@
 /* ************************************************************************** */
 
 #include "Env.class.hpp"
-#include "Player.class.hpp"
-#include "Enemy.class.hpp"
-#include "E_Cluster.class.hpp"
 #include <unistd.h>
+#include "E_Cluster.class.hpp"
+#include "Enemy.class.hpp"
+#include "Player.class.hpp"
 
 Env::EnvState Env::_envstate = Uninitialized;
 Env::EnvState Env::GetEnvState() const { return _envstate; }
-void		  Env::SetEnvState(EnvState &in) { _envstate = in; }
-int			Env::_winw = 0;
-int			Env::_winh = 0;
+void Env::SetEnvState(EnvState &in) { _envstate = in; }
+int Env::_winw = 0;
+int Env::_winh = 0;
 
 Env::Env() {
-//	srand(time(NULL));
+  //	srand(time(NULL));
 }
 Env::~Env() {}
-Env::Env(const Env& src) { *this = src; }
-Env& Env::operator=(const Env& env) {return *this;}
+Env::Env(const Env &src) { *this = src; }
+Env &Env::operator=(const Env &env) { return *this; }
 
-void Env::Start(void)
-{
-	if (_envstate != Uninitialized)
-		return;
-	EnvInit();
-	GameLoop();
-	if (_envstate == Exiting)
-		EnvExit();
+void Env::Start(void) {
+  if (_envstate != Uninitialized) return;
+  EnvInit();
+  GameLoop();
+  if (_envstate == Exiting) EnvExit();
 }
 
-void Env::EnvInit()
-{
-	initscr();
-	getmaxyx(stdscr, _winh, _winw);
-	win = newwin(_winh, _winw, 0, _winw);
-	raw();
-	keypad(stdscr, TRUE);
-	noecho();
-	_envstate = Playing;
-	curs_set(0);
-	nodelay(stdscr, TRUE);
+void Env::EnvInit() {
+  initscr();
+  getmaxyx(stdscr, _winh, _winw);
+  win = newwin(_winh, _winw, 0, _winw);
+  raw();
+  keypad(stdscr, TRUE);
+  noecho();
+  _envstate = Playing;
+  curs_set(0);
+  nodelay(stdscr, TRUE);
 }
 
-void Env::EnvExit()
-{
+void Env::EnvExit() {
   endwin();
   exit(0);
 }
 
-long long	Env::GetTimeMs()
-{
-	struct timeval tv;
+long long Env::GetTimeMs() {
+  struct timeval tv;
 
-	gettimeofday(&tv, NULL);
-	return (long long)(tv.tv_sec) * 1000 +
-		(long long)(tv.tv_usec) / 1000;
+  gettimeofday(&tv, NULL);
+  return (long long)(tv.tv_sec) * 1000 + (long long)(tv.tv_usec) / 1000;
 }
 
 const int Env::FPS = 10;
 const int Env::SkipTicks = 1000 / Env::FPS;
 
-void UpdateGame(Env &env, E_Cluster &clust, Player &rob, int ch)
-{
-		rob.Action(ch);
-	if (env._time > 2)
-		clust.Action();
+void UpdateGame(Env &env, E_Cluster &clust, Player &rob, int ch) {
+  rob.Action(ch);
+  if (env._time > 2) clust.Action();
 }
 
-void PrintGame(Env &env, E_Cluster &clust, Player &rob)
-{
-	rob.Print();
-	if (env._time > 2)
-		clust.Print();
+void PrintGame(Env &env, E_Cluster &clust, Player &rob) {
+  rob.Print();
+  if (env._time > 2) clust.Print();
 }
 
-void Env::GameLoop()
-{
-	long long next_game_tick = GetTimeMs();
-	int		ch;
-	int		sleep_time = 0;
-	int		delta_t;
-	Player rob(_winh, _winw);
-	E_Cluster clust(100);
-	delta_t = time(NULL);
-	while (1)
-	{
-		ch = getch();
-		clear();
-		if (ch == KEY_ESC)
-			EnvExit();
-		clear();
-		_time = time(NULL) - delta_t;
-		UpdateGame(*this, clust, rob, ch);
-		PrintGame(*this, clust, rob);
-		next_game_tick += SkipTicks;
-		sleep_time = next_game_tick - GetTimeMs();
-		if( sleep_time >= 0 ) {
-			usleep( sleep_time );
-		}
-		else {
-			continue;
-		}
-	}
+void Env::GameLoop() {
+  long long next_game_tick = GetTimeMs();
+  int ch;
+  int sleep_time = 0;
+  int delta_t;
+  Player rob(_winh, _winw);
+  E_Cluster clust(100);
+  delta_t = time(NULL);
+  while (1) {
+    ch = getch();
+    clear();
+    if (ch == KEY_ESC) EnvExit();
+    clear();
+    _time = time(NULL) - delta_t;
+    UpdateGame(*this, clust, rob, ch);
+    PrintGame(*this, clust, rob);
+    next_game_tick += SkipTicks;
+    sleep_time = next_game_tick - GetTimeMs();
+    if (sleep_time >= 0) {
+      usleep(sleep_time);
+    } else {
+      continue;
+    }
+  }
 }
