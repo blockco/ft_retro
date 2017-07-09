@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Enemy.class.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
+/*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 17:55:32 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/08 18:41:26 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/08 21:54:16 by rpassafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,6 @@ public:
 	Enemy();
 	~Enemy();
 	void Action();
+	void Random();
 };
 #endif

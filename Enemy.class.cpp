@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 17:55:18 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/08 20:59:20 by rpassafa         ###   ########.fr       */
+/*   Updated: 2017/07/08 21:53:46 by rpassafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,9 @@ void Enemy::Action()
 		this->_h = 0;
 		this->_w = rand() % Env::_winw;
 	}
+}
 
+void Enemy::Random()
+{
+	this->_w = rand() % Env::_winw;
 }

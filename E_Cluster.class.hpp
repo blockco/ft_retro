@@ -7,7 +7,7 @@
 #include <ncurses.h>
 #include <string.h>
 
-class E_Cluster : public Env {
+class E_Cluster : public GameObject {
 public:
 	E_Cluster();
 	E_Cluster(int size);
