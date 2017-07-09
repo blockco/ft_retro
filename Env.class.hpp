@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 15:58:51 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/09 14:36:38 by rpassafa         ###   ########.fr       */
+/*   Updated: 2017/07/09 15:55:06 by rpassafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ class Env {
 		static const int FPS;
 		static const int SkipTicks;
 		static long long _time;
+		static long long _score;
 
 	protected:
 		WINDOW *win;

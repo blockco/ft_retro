@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 15:58:42 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/09 15:29:12 by rpassafa         ###   ########.fr       */
+/*   Updated: 2017/07/09 15:55:20 by rpassafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void Env::SetEnvState(EnvState &in) { _envstate = in; }
 int Env::_winw = 0;
 int Env::_winh = 0;
 long long Env::_time = 0;
+long long Env::_score = 100;
 
 Env::Env() {}
 Env::~Env() {}

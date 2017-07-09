@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/09 12:52:47 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/09 15:50:21 by rpassafa         ###   ########.fr       */
+/*   Updated: 2017/07/09 15:55:45 by rpassafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void Map::UpdateGame(int ch) {
 
 void Map::PrintGame() {
 	int i = 0;
-	std::string score = std::to_string(Env::_time);
+	std::string score = std::to_string(Env::_time + Env::_score);
 	while(i < Env::_winw)
 	{
 		mvprintw(5, i, "%s", "=");
