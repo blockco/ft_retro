@@ -11,7 +11,6 @@ public:
 	Character(int h, int w);
 	void Move(int num);
 	void Printship();
-
 private:
 	int _h;
 	int _w;
