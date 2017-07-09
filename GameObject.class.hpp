@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   GameObject.class.hpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
+/*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 18:02:34 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/08 18:40:23 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/08 20:06:40 by rpassafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ public:
 	~GameObject();
 	void Print();
 protected:
-	int _h;
-	int _w;
+	float _h;
+	float _w;
 	char	*_image;
 };
 #endif

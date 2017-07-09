@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 15:58:42 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/08 19:44:31 by rpassafa         ###   ########.fr       */
+/*   Updated: 2017/07/08 20:15:10 by rpassafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,22 +61,16 @@ void Env::GameLoop()
 {
 	int		ch;
 	Player rob(_winh, _winw);
-	Enemy  bob;
 	while (1)
 	{
-		if ((ch = getch()) == ERR)
-		{
-			clear();
-			bob.Action();
-			rob.Print();
-			bob.Print();
-		}
-		else if (ch == KEY_ESC)
+		ch = getch();
+		rob.Action(ch);
+		clear();
+		bob.Action();
+		rob.Print();
+		bob.Print();
+		if (ch == KEY_ESC)
 			EnvExit();
-		else
-		{
-			rob.Action(ch);
-		}
 	usleep(10000);
 	}
 }
