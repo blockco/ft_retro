@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 18:08:05 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/08 20:56:49 by rpassafa         ###   ########.fr       */
+/*   Updated: 2017/07/08 22:05:43 by rpassafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ Player::Player(int h, int w)
 {
 	this->_image = new char [3];
 	strcpy(this->_image, "*");
-	this->_h = (h - 1) / 2;
+	this->_h = (h - 20);
 	this->_w = (w - 1) / 2;
 }
 

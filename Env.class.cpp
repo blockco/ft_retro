@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 15:58:42 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/08 21:45:25 by rpassafa         ###   ########.fr       */
+/*   Updated: 2017/07/08 21:58:44 by rpassafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void Env::GameLoop()
 	int		ch;
 	Player rob(_winh, _winw);
 	Enemy bob;
-	E_Cluster clust;
+	E_Cluster clust(100);
 	usleep(60000);
 	Enemy jim;
 	while (1)

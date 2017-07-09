@@ -9,7 +9,7 @@ E_Cluster::E_Cluster(int _size)
 	this->_clust = new Enemy[_size];
 	while (i < this->_size)
 	{
-		this->_clust[i] = Enemy();
+		this->_clust[i].Random();
 		i++;
 		usleep(60000);
 	}
