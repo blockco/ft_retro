@@ -11,7 +11,7 @@ E_Cluster::E_Cluster(int _size)
 	{
 		this->_clust[i].Random();
 		i++;
-		usleep(60000);
+		//usleep(10000);
 	}
 }
 E_Cluster::E_Cluster()

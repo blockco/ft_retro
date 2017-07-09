@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 15:58:42 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/08 22:00:18 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/08 22:20:35 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int			Env::_winw = 0;
 int			Env::_winh = 0;
 
 Env::Env() {
-	srand(time(NULL));
+//	srand(time(NULL));
 }
 Env::~Env() {}
 Env::Env(const Env& src) { *this = src; }
@@ -90,7 +90,6 @@ void Env::GameLoop()
 	Player rob(_winh, _winw);
 	Enemy bob;
 	E_Cluster clust(100);
-	usleep(60000);
 	Enemy jim;
 	while (1)
 	{
