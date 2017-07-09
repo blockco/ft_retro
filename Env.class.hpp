@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   env.class.hpp                                      :+:      :+:    :+:   */
+/*   Env.class.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 15:58:51 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/08 16:40:17 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/08 18:58:00 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 #include <iostream>
 #ifndef ENV_HPP
 #define ENV_HPP
+
+#define WIN_W
 
 class Env {
 	private:
@@ -36,7 +38,7 @@ class Env {
 	
 	protected:
 		WINDOW *win;
-		int		winh;
-		int		winw;
+		int		_winh;
+		int		_winw;
 };
 #endif

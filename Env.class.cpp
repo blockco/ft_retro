@@ -6,12 +6,13 @@
 /*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 15:58:42 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/08 18:39:34 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/08 18:51:31 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Env.class.hpp"
 #include "Player.class.hpp"
+#include "Enemy.class.hpp"
 
 Env::EnvState Env::_envstate = Uninitialized;
 Env::EnvState Env::GetEnvState() const { return _envstate; }
@@ -35,8 +36,8 @@ void Env::Start(void)
 void Env::EnvInit()
 {
 	initscr();
-	getmaxyx(stdscr, winh, winw);
-	win = newwin(winh, winw, 0, winw);
+	getmaxyx(stdscr, _winh, _winw);
+	win = newwin(_winh, _winw, 0, winw);
 	raw();
 	keypad(stdscr, TRUE);
 	noecho();
@@ -55,10 +56,16 @@ void Env::GameLoop()
 {
 	int		ch;
 	Player rob(winh, winw);
+	mvprintw(10, 10, "Winh = %d", winh);
+	mvprintw(20, 10, "Winw = %d", winw);
+	Enemy  bob;
 	while (1)
 	{
 		if ((ch = getch()) == ERR)
-			rob.Print();
+		{
+//			rob.Print();
+			bob.Print();
+		}
 		else {
 			clear();
 			rob.Action(ch);
