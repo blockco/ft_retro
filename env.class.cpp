@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 15:58:42 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/08 18:18:38 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/08 18:31:03 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void Env::GameLoop()
 	while (1)
 	{
 		if ((ch = getch()) == ERR)
-			rob.Printship();
+			rob.Print();
 		else {
 			clear();
 			rob.Action(ch);

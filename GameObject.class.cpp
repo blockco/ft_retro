@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 18:01:26 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/08 18:16:05 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/08 18:30:19 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ GameObject::GameObject()
 GameObject::~GameObject()
 {}
 
-void GameObject::Print(char *s)
+void GameObject::Print()
 {
-	mvprintw(this->_h, this->_w, "%s", s);
+	mvprintw(this->_h, this->_w, "%s", this->_image);
 }
