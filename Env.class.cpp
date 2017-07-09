@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 15:58:42 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/08 19:36:10 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/08 19:44:31 by rpassafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ void Env::GameLoop()
 	{
 		if ((ch = getch()) == ERR)
 		{
+			clear();
+			bob.Action();
 			rob.Print();
 			bob.Print();
 		}
@@ -73,10 +75,8 @@ void Env::GameLoop()
 			EnvExit();
 		else
 		{
-			clear();
-			bob.Action();
 			rob.Action(ch);
 		}
+	usleep(10000);
 	}
 }
-
