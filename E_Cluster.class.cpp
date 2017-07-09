@@ -4,7 +4,7 @@
 E_Cluster::E_Cluster() {
   int i;
   i = 0;
-  this->_size = 50;
+  this->_size = 10;
   this->_clust = new Enemy[_size];
   while (i < this->_size) {
     this->_clust[i].Random();
@@ -65,4 +65,7 @@ void E_Cluster::Print() {
   }
 }
 
-E_Cluster::~E_Cluster() {}
+E_Cluster::~E_Cluster()
+{
+	delete[] this->_clust;
+}

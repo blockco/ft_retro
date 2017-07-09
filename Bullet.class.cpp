@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bullet.class.cpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
+/*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/09 13:51:25 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/09 15:35:01 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/09 16:51:28 by rpassafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void Bullet::Fire(int _inh, int _inw) {
 void Bullet::Action() {
   if (this->_state == false) return;
   this->_h -= this->_velocity;
-  if (this->_h <= 0) {
+  if (this->_h <= 5) {
     this->_state = false;
   }
 }

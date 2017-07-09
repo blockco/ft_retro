@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 18:08:05 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/09 15:34:01 by rpassafa         ###   ########.fr       */
+/*   Updated: 2017/07/09 16:52:30 by rpassafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ void Player::Action(int n) {
 	int i = 0;
   if (n == KEY_DOWN) this->_h += 1;
   if (n == KEY_UP) this->_h -= 1;
-  if (n == KEY_LEFT) this->_w -= 2;
-  if (n == KEY_RIGHT) this->_w += 2;
+  if (n == KEY_LEFT) this->_w -= 1;
+  if (n == KEY_RIGHT) this->_w += 1;
   if (n == ' ') {
     this->Fire();
   }

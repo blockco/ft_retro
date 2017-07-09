@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 15:58:42 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/09 16:27:43 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/09 16:55:07 by rpassafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int Env::_winw = 0;
 int Env::_winh = 0;
 long long Env::_time = 0;
 long long Env::_score = 100;
+const int Env::FPS = 20;
+const int Env::SkipTicks = 1000 / Env::FPS;
 
 Env::Env() {}
 Env::~Env() {}
@@ -60,9 +62,6 @@ long long Env::GetTimeMs() {
   return (long long)(tv.tv_sec) * 1000 + (long long)(tv.tv_usec) / 1000;
 }
 
-const int Env::FPS = 10;
-const int Env::SkipTicks = 1000 / Env::FPS;
-
 void Env::GameLoop() {
   long long next_game_tick = GetTimeMs();
   int ch;
@@ -82,8 +81,6 @@ void Env::GameLoop() {
     sleep_time = next_game_tick - GetTimeMs();
     if (sleep_time >= 0) {
       usleep(sleep_time);
-    } else {
-      continue;
     }
   }
 }

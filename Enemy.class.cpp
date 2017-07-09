@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 17:55:18 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/09 15:51:24 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/09 16:47:13 by rpassafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ if (this->_h > Env::_winh)
 {
 	this->_h = 5;
 	this->_w = rand() % Env::_winw;
+	this->_state = true;
 }
 }
 
