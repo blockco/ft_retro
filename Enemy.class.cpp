@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 17:55:18 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/09 15:48:27 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/09 15:51:24 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Enemy::Enemy() {
   this->_image = new char[1];
   strcpy(this->_image, "x");
   this->_velocity = nums[rand() % 11];
-  this->_h = 10;
+  this->_h = 5;
   this->_w = 0;
   this->_state = true;
 }
@@ -35,7 +35,7 @@ void Enemy::Action() {
 this->_h += this->_velocity;
 if (this->_h > Env::_winh)
 {
-	this->_h = 10;
+	this->_h = 5;
 	this->_w = rand() % Env::_winw;
 }
 }
