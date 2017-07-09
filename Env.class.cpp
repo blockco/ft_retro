@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 15:58:42 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/08 21:01:58 by rpassafa         ###   ########.fr       */
+/*   Updated: 2017/07/08 21:43:23 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,28 +57,56 @@ void Env::EnvExit()
   exit(0);
 }
 
-void Env::GameLoop()
+long long	Env::GetTimeMs()
 {
-	int		ch;
-	int i = 0;
-	Player rob(_winh, _winw);
-	Enemy bob;
-	usleep(60000);
-	Enemy jim;
-	while (1)
-	{
-		i++;
-		ch = getch();
-		clear();
+	struct timeval tv;
+
+	gettimeofday(&tv, NULL);
+	return (long long)(tv.tv_sec) * 1000 +
+		(long long)(tv.tv_usec) / 1000;
+}
+
+const int Env::FPS = 10;
+const int Env::SkipTicks = 1000 / Env::FPS;
+
+void UpdateGame(Enemy &bob, Enemy &jim, Player &rob, int ch)
+{
 		rob.Action(ch);
-		if (i > 10)
-			jim.Action();
+		jim.Action();
 		bob.Action();
+}
+
+
+void PrintGame(Enemy &bob, Enemy &jim, Player &rob)
+{
 		jim.Print();
 		rob.Print();
 		bob.Print();
+}
+
+void Env::GameLoop()
+{
+	long long next_game_tick = GetTimeMs();
+	int		ch;
+	int		sleep_time = 0;
+	Player rob(_winh, _winw);
+	Enemy bob;
+	Enemy jim;
+	while (1)
+	{
+		ch = getch();
 		if (ch == KEY_ESC)
 			EnvExit();
-	usleep(10000);
+		clear();
+		PrintGame(bob, jim, rob);
+		UpdateGame(bob, jim, rob, ch);
+		next_game_tick += SkipTicks;
+		sleep_time = next_game_tick - GetTimeMs();
+		if( sleep_time >= 0 ) {
+			usleep( sleep_time );
+		}
+		else {
+			continue;
+		}
 	}
 }
