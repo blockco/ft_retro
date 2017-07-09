@@ -20,12 +20,12 @@ E_Cluster::E_Cluster()
 	i = 0;
 	this->_size = 10;
 	this->_clust = new Enemy[10];
-	// while (i < this->_size)
-	// {
-	// 	this->_clust[i] = Enemy();
-	// 	i++;
-	// 	// usleep(rand() % 1000000);
-	// }
+	while (i < this->_size)
+	{
+		this->_clust[i].Random();
+		i++;
+		// usleep(rand() % 1000000);
+	}
 }
 
 void E_Cluster::Action()
