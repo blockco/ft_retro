@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 15:58:42 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/09 15:55:20 by rpassafa         ###   ########.fr       */
+/*   Updated: 2017/07/09 16:27:43 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@ long long Env::_score = 100;
 Env::Env() {}
 Env::~Env() {}
 Env::Env(const Env &src) { *this = src; }
-Env &Env::operator=(const Env &env) { return *this; }
+Env &Env::operator=(const Env &src) {
+	_envstate = src._envstate;
+	return *this; }
 
 void Env::Start(void) {
   if (_envstate != Uninitialized) return;

@@ -6,7 +6,7 @@
 #    By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/03 08:31:22 by jkalia            #+#    #+#              #
-#    Updated: 2017/07/09 15:06:08 by jkalia           ###   ########.fr        #
+#    Updated: 2017/07/09 16:25:32 by jkalia           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ OBJS = $(SRCS:.cpp=.o)
 LIBS =
 
 CXXFLAGS += -std=c++98
-#CPPFLAGS += -Wall -Wextra -Werror
+CPPFLAGS += -Wall -Wextra -Werror
 CFLAGS +=
 LDFLAGS += -Wall -Wextra -Werror -lmenu -lncurses
 
