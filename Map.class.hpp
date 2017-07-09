@@ -1,37 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   GameObject.class.hpp                               :+:      :+:    :+:   */
+/*   Map.class.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/08 18:02:34 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/09 13:38:28 by jkalia           ###   ########.fr       */
+/*   Created: 2017/07/09 12:52:54 by jkalia            #+#    #+#             */
+/*   Updated: 2017/07/09 13:28:50 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GameObject_CLASS_HPP
-#define GameObject_CLASS_HPP
+#ifndef MAP_CLASS_HPP
+#define MAP_CLASS_HPP
 #include "Env.class.hpp"
+#include "E_Cluster.class.hpp"
+#include "Enemy.class.hpp"
+#include "Player.class.hpp"
 
 #include <ncurses.h>
 #include <string.h>
 
-class GameObject : public Env
+class Map
 {
 	public:
-		GameObject();
-		~GameObject();
-		void Print();
-		int get_w() const;
-		int get_h() const;
-		void setw(int w);
-		void seth(int h);
-	protected:
-		float _h;
-		float _w;
-		float _velocity;
-		int   _score;
-		char *_image;
+		Map(Env& start);
+		~Map();
+		void Turn(int ch);
+
+	private:
+		Player rob;
+		E_Cluster clust;
+		Env& _start;
+		void UpdateGame(int ch);
+		void PrintGame();
+		void CheckGame();
+
 };
 #endif

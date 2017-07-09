@@ -6,12 +6,12 @@
 #    By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/03 08:31:22 by jkalia            #+#    #+#              #
-#    Updated: 2017/07/08 21:25:54 by rpassafa         ###   ########.fr        #
+#    Updated: 2017/07/09 13:50:14 by jkalia           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = ft_retro
-SRCS = main.cpp Env.class.cpp Player.class.cpp GameObject.class.cpp Enemy.class.cpp E_Cluster.class.cpp
+SRCS = main.cpp Env.class.cpp Player.class.cpp GameObject.class.cpp Enemy.class.cpp E_Cluster.class.cpp Map.class.cpp Bullet.class.cpp
 HDRS =
 OBJS = $(SRCS:.cpp=.o)
 LIBS =

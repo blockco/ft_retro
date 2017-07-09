@@ -6,25 +6,22 @@
 /*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 15:58:42 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/09 12:04:34 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/09 13:27:02 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Env.class.hpp"
 #include <unistd.h>
-#include "E_Cluster.class.hpp"
-#include "Enemy.class.hpp"
-#include "Player.class.hpp"
+#include "Map.class.hpp"
 
 Env::EnvState Env::_envstate = Uninitialized;
 Env::EnvState Env::GetEnvState() const { return _envstate; }
 void Env::SetEnvState(EnvState &in) { _envstate = in; }
 int Env::_winw = 0;
 int Env::_winh = 0;
+long long Env::_time = 0;
 
-Env::Env() {
-  //	srand(time(NULL));
-}
+Env::Env() {}
 Env::~Env() {}
 Env::Env(const Env &src) { *this = src; }
 Env &Env::operator=(const Env &env) { return *this; }
@@ -63,32 +60,21 @@ long long Env::GetTimeMs() {
 const int Env::FPS = 10;
 const int Env::SkipTicks = 1000 / Env::FPS;
 
-void UpdateGame(Env &env, E_Cluster &clust, Player &rob, int ch) {
-  rob.Action(ch);
-  if (env._time > 2) clust.Action();
-}
-
-void PrintGame(Env &env, E_Cluster &clust, Player &rob) {
-  rob.Print();
-  if (env._time > 2) clust.Print();
-}
-
 void Env::GameLoop() {
   long long next_game_tick = GetTimeMs();
   int ch;
   int sleep_time = 0;
   int delta_t;
-  Player rob(_winh, _winw);
-  E_Cluster clust(100);
   delta_t = time(NULL);
+  Map map(*this);
   while (1) {
     ch = getch();
     clear();
     if (ch == KEY_ESC) EnvExit();
+    if (_envstate == Exiting) EnvExit();
     clear();
+    map.Turn(ch);
     _time = time(NULL) - delta_t;
-    UpdateGame(*this, clust, rob, ch);
-    PrintGame(*this, clust, rob);
     next_game_tick += SkipTicks;
     sleep_time = next_game_tick - GetTimeMs();
     if (sleep_time >= 0) {

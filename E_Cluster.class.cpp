@@ -1,17 +1,32 @@
 #include "E_Cluster.class.hpp"
 #include <unistd.h>
 
-E_Cluster::E_Cluster(int _size) {
+E_Cluster::E_Cluster() {
   int i;
   i = 0;
-  this->_size = _size;
+  this->_size = 50;
   this->_clust = new Enemy[_size];
   while (i < this->_size) {
     this->_clust[i].Random();
     i++;
     _clust[i].setw(rand() % Env::_winw);
-    _clust[i].seth(rand() % 20);
+    _clust[i].seth(-50);
   }
+}
+
+bool E_Cluster::PlayerCollision(int h, int min_w, int max_w) {
+  int i;
+  i = 0;
+  int enemy_h;
+  int enemy_w;
+  while (i < this->_size) {
+    enemy_h = this->_clust[i].get_h();
+    enemy_w = this->_clust[i].get_w();
+    if ((enemy_h == h) && ((enemy_w >= min_w) && (enemy_w <= max_w)))
+      return true;
+    ++i;
+  }
+  return false;
 }
 
 void E_Cluster::Action() {

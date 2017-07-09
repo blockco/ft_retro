@@ -10,10 +10,11 @@
 class E_Cluster : public GameObject {
 public:
 	E_Cluster();
-	E_Cluster(int size);
+//	E_Cluster(int size);
 	~E_Cluster();
 	void Action();
 	void Print();
+	bool PlayerCollision(int h, int min_w, int max_w);
 private:
 	int _size;
 	Enemy *_clust;

@@ -1,13 +1,15 @@
 #ifndef BULLET_CLASS_HPP
 #define BULLET_CLASS_HPP
 
-class Bullet{
+#include "Player.class.hpp"
+
+class Bullet : public Player {
 public:
-	Bullet();
+	Bullet(Player& player);
 	~Bullet();
-	int GetVelocity();
+	void Fired(Player& player);
+	bool Action();
 private:
-	int _velocity;
-	char _image[2];
+	bool _state;
 };
 #endif
