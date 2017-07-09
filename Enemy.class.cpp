@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 17:55:18 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/08 22:08:58 by rpassafa         ###   ########.fr       */
+/*   Updated: 2017/07/08 22:24:10 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,16 @@ Enemy::Enemy()
 	strcpy(this->_image, "x");
 	this->_h = 0;
 	this->_w = rand() % Env::_winw;
+}
+
+void Enemy::setw(int w)
+{
+	this->_w = w;
+}
+
+void Enemy::seth(int h)
+{
+	this->_h = h;
 }
 
 Enemy::~Enemy()

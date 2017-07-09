@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 17:55:32 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/08 22:00:28 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/08 22:23:04 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,7 @@ public:
 	~Enemy();
 	void Action();
 	void Random();
+	void setw(int w);
+	void seth(int h);
 };
 #endif
