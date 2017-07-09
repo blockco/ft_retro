@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 15:58:42 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/08 18:51:31 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/08 19:10:34 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 Env::EnvState Env::_envstate = Uninitialized;
 Env::EnvState Env::GetEnvState() const { return _envstate; }
 void		  Env::SetEnvState(EnvState &in) { _envstate = in; }
+int			Env::_winw = 0;
+int			Env::_winh = 0;
 
 Env::Env() {}
 Env::~Env() {}
@@ -37,7 +39,7 @@ void Env::EnvInit()
 {
 	initscr();
 	getmaxyx(stdscr, _winh, _winw);
-	win = newwin(_winh, _winw, 0, winw);
+	win = newwin(_winh, _winw, 0, _winw);
 	raw();
 	keypad(stdscr, TRUE);
 	noecho();
@@ -55,15 +57,13 @@ void Env::EnvExit()
 void Env::GameLoop()
 {
 	int		ch;
-	Player rob(winh, winw);
-	mvprintw(10, 10, "Winh = %d", winh);
-	mvprintw(20, 10, "Winw = %d", winw);
+	Player rob(_winh, _winw);
 	Enemy  bob;
 	while (1)
 	{
 		if ((ch = getch()) == ERR)
 		{
-//			rob.Print();
+			rob.Print();
 			bob.Print();
 		}
 		else {

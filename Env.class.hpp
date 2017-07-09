@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 15:58:51 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/08 18:58:00 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/08 19:06:39 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ class Env {
 		void Start();
 		EnvState GetEnvState() const;
 		void  SetEnvState(EnvState &in);
+		static int		_winh;
+		static int		_winw;
 	
 	protected:
 		WINDOW *win;
-		int		_winh;
-		int		_winw;
 };
 #endif
