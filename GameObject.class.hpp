@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 18:02:34 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/09 13:38:28 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/09 15:35:27 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,14 @@ class GameObject : public Env
 		int get_h() const;
 		void setw(int w);
 		void seth(int h);
+		bool getstate() const;
+		void setstate(bool instate);
 	protected:
 		float _h;
 		float _w;
 		float _velocity;
 		int   _score;
 		char *_image;
+		bool _state;
 };
 #endif

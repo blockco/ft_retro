@@ -8,9 +8,6 @@ public:
 	Bullet();
 	~Bullet();
 	void Fire(int _inh, int _inw);
-	bool getstate() const;
 	void Action();
-private:
-	bool _state;
 };
 #endif

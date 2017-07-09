@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 17:55:18 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/09 15:02:40 by rpassafa         ###   ########.fr       */
+/*   Updated: 2017/07/09 15:48:27 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ Enemy::Enemy() {
   this->_velocity = nums[rand() % 11];
   this->_h = 10;
   this->_w = 0;
+  this->_state = true;
 }
 
 int Enemy::get_w() const { return this->_w; }
@@ -37,6 +38,11 @@ if (this->_h > Env::_winh)
 	this->_h = 10;
 	this->_w = rand() % Env::_winw;
 }
+}
+
+void Enemy::Print() {
+	if (this->_state == true)
+		mvprintw(this->_h, this->_w, "%s", this->_image);
 }
 
 void Enemy::Random() { this->_w = rand() % Env::_winw; }
