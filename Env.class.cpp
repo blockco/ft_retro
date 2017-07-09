@@ -6,13 +6,14 @@
 /*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 15:58:42 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/08 21:43:23 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/08 21:47:21 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Env.class.hpp"
 #include "Player.class.hpp"
 #include "Enemy.class.hpp"
+#include "E_Cluster.class.hpp"
 #include <unistd.h>
 
 Env::EnvState Env::_envstate = Uninitialized;
@@ -22,7 +23,7 @@ int			Env::_winw = 0;
 int			Env::_winh = 0;
 
 Env::Env() {
-	srand(time(0));
+	srand(time(NULL));
 }
 Env::~Env() {}
 Env::Env(const Env& src) { *this = src; }
@@ -69,19 +70,16 @@ long long	Env::GetTimeMs()
 const int Env::FPS = 10;
 const int Env::SkipTicks = 1000 / Env::FPS;
 
-void UpdateGame(Enemy &bob, Enemy &jim, Player &rob, int ch)
+void UpdateGame(E_Cluster &clust, Player &rob, int ch)
 {
 		rob.Action(ch);
-		jim.Action();
-		bob.Action();
+		clust.Action();
 }
 
-
-void PrintGame(Enemy &bob, Enemy &jim, Player &rob)
+void PrintGame(E_Cluster &clust, Player &rob)
 {
-		jim.Print();
+		clust.Print();
 		rob.Print();
-		bob.Print();
 }
 
 void Env::GameLoop()
@@ -91,15 +89,16 @@ void Env::GameLoop()
 	int		sleep_time = 0;
 	Player rob(_winh, _winw);
 	Enemy bob;
-	Enemy jim;
+	E_Cluster clust;
 	while (1)
 	{
 		ch = getch();
+		clear();
 		if (ch == KEY_ESC)
 			EnvExit();
 		clear();
-		PrintGame(bob, jim, rob);
-		UpdateGame(bob, jim, rob, ch);
+		UpdateGame(clust, rob, ch);
+		PrintGame(clust, rob);
 		next_game_tick += SkipTicks;
 		sleep_time = next_game_tick - GetTimeMs();
 		if( sleep_time >= 0 ) {
