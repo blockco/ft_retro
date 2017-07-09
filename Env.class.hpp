@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 15:58:51 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/08 19:06:39 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/08 19:21:33 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #ifndef ENV_HPP
 #define ENV_HPP
 
-#define WIN_W
+#define KEY_ESC 27
 
 class Env {
 	private:

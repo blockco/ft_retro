@@ -6,13 +6,14 @@
 /*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 15:58:42 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/08 19:10:34 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/08 19:36:10 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Env.class.hpp"
 #include "Player.class.hpp"
 #include "Enemy.class.hpp"
+#include <unistd.h>
 
 Env::EnvState Env::_envstate = Uninitialized;
 Env::EnvState Env::GetEnvState() const { return _envstate; }
@@ -20,7 +21,9 @@ void		  Env::SetEnvState(EnvState &in) { _envstate = in; }
 int			Env::_winw = 0;
 int			Env::_winh = 0;
 
-Env::Env() {}
+Env::Env() {
+	srand(time(0));
+}
 Env::~Env() {}
 Env::Env(const Env& src) { *this = src; }
 Env& Env::operator=(const Env& env) {return *this;}
@@ -66,8 +69,12 @@ void Env::GameLoop()
 			rob.Print();
 			bob.Print();
 		}
-		else {
+		else if (ch == KEY_ESC)
+			EnvExit();
+		else
+		{
 			clear();
+			bob.Action();
 			rob.Action(ch);
 		}
 	}
