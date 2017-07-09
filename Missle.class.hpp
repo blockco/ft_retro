@@ -1,38 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Player.class.hpp                                   :+:      :+:    :+:   */
+/*   Missle.class.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/08 18:08:14 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/09 15:16:22 by jkalia           ###   ########.fr       */
+/*   Created: 2017/07/09 15:19:37 by jkalia            #+#    #+#             */
+/*   Updated: 2017/07/09 15:20:36 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef Player_CLASS_HPP
-#define Player_CLASS_HPP
-#include "GameObject.class.hpp"
-#include "Bullet.class.hpp"
-#include "E_Cluster.class.hpp"
-#define BULLET_MAX 20
 
-class Player : public GameObject {
+#ifndef MISSLE_CLASS_HPP
+#define MISSLE_CLASS_HPP
+
+#include "GameObject.class.hpp"
+
+class Missle : public GameObject{
 public:
-	Player();
-	~Player();
-	Player(int h, int w);
-	void Action(int num);
-	int get_h() const;
-	int get_w() const;
-	int get_maxwidth() const;
-	void IncrementScore();
-	void CollisionCheck(E_Cluster& clust);
-	void Fire();
-	void Print();
+	Missle();
+	~Missle();
+	void Fire(int _inh, int _inw);
+	bool getstate() const;
+	void Action();
 private:
-	int		_maxwidth;
-	Bullet  *_charlie;
-	int		_bullet_index;
+	bool _state;
+	Bullet tom[3];
 };
 #endif
