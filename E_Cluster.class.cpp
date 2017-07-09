@@ -38,10 +38,12 @@ bool E_Cluster::BulletCollision(int h, int w) {
     enemy_h = this->_clust[i].get_h();
     enemy_w = this->_clust[i].get_w();
     if (enemy_h == h && enemy_w == w)
-      return true;
+	{
+		this->_clust[i].setstate(false);
+	}
     ++i;
   }
-  return false;
+  return true;
 }
 
 void E_Cluster::Action() {

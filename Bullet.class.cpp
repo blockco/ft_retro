@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/09 13:51:25 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/09 15:05:47 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/09 15:35:01 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,3 @@ void Bullet::Action() {
 }
 
 Bullet::~Bullet() { delete this->_image; }
-
-bool Bullet::getstate() const { return this->_state; }

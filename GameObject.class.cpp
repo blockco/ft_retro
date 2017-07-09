@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 18:01:26 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/09 15:05:33 by rpassafa         ###   ########.fr       */
+/*   Updated: 2017/07/09 15:37:07 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,3 +23,5 @@ void GameObject::setw(int w) { this->_w = w; }
 void GameObject::seth(int h) { this->_h = h; }
 
 void GameObject::Print() { mvprintw(this->_h, this->_w, "%s", this->_image); }
+bool GameObject::getstate() const { return this->_state; }
+void GameObject::setstate(bool instate) { _state = instate; }
