@@ -6,11 +6,12 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/09 12:52:47 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/09 13:33:38 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/09 14:53:19 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Map.class.hpp"
+#include "Bullet.class.hpp"
 #include "E_Cluster.class.hpp"
 #include "Enemy.class.hpp"
 #include "Player.class.hpp"
@@ -22,11 +23,13 @@ Map::~Map() {}
 void Map::UpdateGame(int ch) {
   rob.Action(ch);
   clust.Action();
+  //charlie.Action();
 }
 
 void Map::PrintGame() {
   rob.Print();
   clust.Print();
+  //charlie.Print();
 }
 
 void Map::CheckGame() {
@@ -45,4 +48,5 @@ void Map::Turn(int ch) {
   this->UpdateGame(ch);
   this->CheckGame();
   this->PrintGame();
+  //charlie.Fire(50, 50);
 }

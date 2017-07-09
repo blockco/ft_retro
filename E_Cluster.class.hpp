@@ -15,6 +15,7 @@ public:
 	void Action();
 	void Print();
 	bool PlayerCollision(int h, int min_w, int max_w);
+	bool BulletCollision(int h, int w);
 private:
 	int _size;
 	Enemy *_clust;

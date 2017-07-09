@@ -13,6 +13,9 @@
 #ifndef Player_CLASS_HPP
 #define Player_CLASS_HPP
 #include "GameObject.class.hpp"
+#include "Bullet.class.hpp"
+#include "E_Cluster.class.hpp"
+#define BULLET_MAX 20
 
 class Player : public GameObject {
 public:
@@ -24,7 +27,12 @@ public:
 	int get_w() const;
 	int get_maxwidth() const;
 	void IncrementScore();
+	void CollisionCheck(E_Cluster& clust);
+	void Fire();
+	void Print();
 private:
 	int		_maxwidth;
+	Bullet  *_charlie;
+	int		_bullet_index;
 };
 #endif
