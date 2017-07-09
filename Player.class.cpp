@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Player.class.cpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
+/*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 18:08:05 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/08 18:31:24 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/08 20:56:49 by rpassafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 Player::Player(int h, int w)
 {
 	this->_image = new char [3];
-	strcpy(this->_image, "***");
+	strcpy(this->_image, "*");
 	this->_h = (h - 1) / 2;
 	this->_w = (w - 1) / 2;
 }

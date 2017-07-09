@@ -6,11 +6,13 @@
 /*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 12:02:41 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/08 18:44:51 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/08 20:52:29 by rpassafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Env.class.hpp"
+#include <ctime>
+#include <cstdlib>
 
 int main(void)
 {
