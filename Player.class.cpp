@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 18:08:05 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/09 17:37:46 by rpassafa         ###   ########.fr       */
+/*   Updated: 2017/07/09 18:23:33 by rpassafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,10 @@ int Player::get_maxwidth() const { return this->_maxwidth; }
 
 void Player::Action(int n) {
 	int i = 0;
-  if (n == KEY_DOWN) this->_h += 1;
-  if (n == KEY_UP) this->_h -= 1;
-  if (n == KEY_LEFT) this->_w -= 1;
-  if (n == KEY_RIGHT) this->_w += 1;
+  if (n == KEY_DOWN && (Env::_winh > this->_h + 1)) this->_h += 1;
+  if (n == KEY_UP && (5 < this->_h - 1)) this->_h -= 1;
+  if (n == KEY_LEFT && (-1 < this->_w - 1)) this->_w -= 1;
+  if (n == KEY_RIGHT && (Env::_winw > this->_w + 5)) this->_w += 1;
   if (n == ' ') {
     this->Fire();
   }
