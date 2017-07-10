@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 17:55:32 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/09 17:29:53 by rpassafa         ###   ########.fr       */
+/*   Updated: 2017/07/09 19:33:59 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ class Enemy : public GameObject {
 public:
 	Enemy();
 	~Enemy();
+	Enemy(const Enemy& src);
+	Enemy& operator=(const Enemy &src);
 	void Action();
 	void Random();
 	void Print();

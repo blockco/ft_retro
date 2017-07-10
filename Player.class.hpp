@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 18:08:14 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/09 14:21:17 by rpassafa         ###   ########.fr       */
+/*   Updated: 2017/07/09 19:38:49 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ class Player : public GameObject {
 public:
 	Player();
 	~Player();
+	Player(const Player& src);
+	Player& operator=(const Player &src);
 	Player(int h, int w);
 	void Action(int num);
 	int get_h() const;

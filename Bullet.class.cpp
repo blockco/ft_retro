@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/09 13:51:25 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/09 16:51:28 by rpassafa         ###   ########.fr       */
+/*   Updated: 2017/07/09 19:31:07 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,17 @@ Bullet::Bullet() {
   this->_state = false;
   this->_image = new char[1];
   strcpy(this->_image, "#");
+}
+
+Bullet::Bullet(const Bullet &src) { *this = src; }
+Bullet &Bullet::operator=(const Bullet &src) {
+  _h = src._h;
+  _w = src._w;
+  _velocity = src._velocity;
+  _score = src._score;
+  _image = src._image;
+  _state = src._state;
+  return *this;
 }
 
 void Bullet::Fire(int _inh, int _inw) {

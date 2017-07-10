@@ -10,8 +10,9 @@
 class E_Cluster : public GameObject {
 public:
 	E_Cluster();
-//	E_Cluster(int size);
 	~E_Cluster();
+	E_Cluster(const E_Cluster& src);
+	E_Cluster& operator=(const E_Cluster &src);
 	void Action();
 	void Print();
 	bool PlayerCollision(int h, int min_w, int max_w);

@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 18:02:34 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/09 15:35:27 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/09 19:27:50 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ class GameObject : public Env
 	public:
 		GameObject();
 		~GameObject();
+		GameObject(const GameObject &src);
+		GameObject& operator=(const GameObject &src);
 		void Print();
 		int get_w() const;
 		int get_h() const;

@@ -28,8 +28,9 @@ Env::Env() {}
 Env::~Env() {}
 Env::Env(const Env &src) { *this = src; }
 Env &Env::operator=(const Env &src) {
-	_envstate = src._envstate;
-	return *this; }
+  _envstate = src._envstate;
+  return *this;
+}
 
 void Env::Start(void) {
   if (_envstate != Uninitialized) return;
@@ -42,18 +43,13 @@ void Env::EnvInit() {
   initscr();
   getmaxyx(stdscr, _winh, _winw);
   win = newwin(_winh, _winw, 0, _winw);
-  if (_winh < 50 || _winh > 80 || _winw < 100 || _winw > 150)
- {
-	endwin();
-	if (_winh < 50)
-		std::cout << "Window to Short" << std::endl;
-	if (_winh > 80)
-		std::cout << "Window to Tall" << std::endl;
-	if (_winw < 100)
-		std::cout << "Window not wide enough" << std::endl;
-	if (_winw > 150)
-		std::cout << "Window too wide" << std::endl;
-	exit(0);
+  if (_winh < 50 || _winh > 80 || _winw < 100 || _winw > 150) {
+    endwin();
+    if (_winh < 50) std::cout << "Window to Short" << std::endl;
+    if (_winh > 80) std::cout << "Window to Tall" << std::endl;
+    if (_winw < 100) std::cout << "Window not wide enough" << std::endl;
+    if (_winw > 150) std::cout << "Window too wide" << std::endl;
+    exit(0);
   }
   raw();
   keypad(stdscr, TRUE);

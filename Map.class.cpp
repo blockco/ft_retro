@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/09 12:52:47 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/09 18:12:57 by rpassafa         ###   ########.fr       */
+/*   Updated: 2017/07/09 19:38:00 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,17 @@
 #include "Enemy.class.hpp"
 #include "Player.class.hpp"
 
-Map::Map(Env& start) : _start(start) {}
+Map::Map(Env &start) : _start(start) {}
 
 Map::~Map() {}
+
+Map::Map(const Map &src) : _start(src._start) { *this = src; }
+Map &Map::operator=(const Map &src) {
+  rob = src.rob;
+  clust = src.clust;
+  charlie = src.charlie;
+  return *this;
+}
 
 void Map::UpdateGame(int ch) {
   rob.Action(ch);
@@ -26,16 +34,15 @@ void Map::UpdateGame(int ch) {
 }
 
 void Map::PrintGame() {
-	int i = 0;
-	std::string last = std::to_string(Env::_time);
-	std::string score = std::to_string(Env::_time + Env::_score);
-	while(i < Env::_winw)
-	{
-		mvprintw(5, i, "%s", "=");
-		i++;
-	}
-	mvprintw(1, 2, "Time: %s", last.c_str());
-	mvprintw(2, 2, "Score: %s", score.c_str());
+  int i = 0;
+  std::string last = std::to_string(Env::_time);
+  std::string score = std::to_string(Env::_time + Env::_score);
+  while (i < Env::_winw) {
+    mvprintw(5, i, "%s", "=");
+    i++;
+  }
+  mvprintw(1, 2, "Time: %s", last.c_str());
+  mvprintw(2, 2, "Score: %s", score.c_str());
   rob.Print();
   clust.Print();
 }
@@ -44,7 +51,6 @@ void Map::CheckGame() {
   int player_h;
   int player_min_w;
   int player_max_w;
-
 
   player_h = rob.get_h();
   player_min_w = rob.get_w();

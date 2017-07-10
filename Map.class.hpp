@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/09 12:52:54 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/09 14:47:01 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/09 19:35:15 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ class Map
 	public:
 		Map(Env& start);
 		~Map();
+	Map(const Map& src);
+	Map& operator=(const Map &src);
 		void Turn(int ch);
 
 	private:
