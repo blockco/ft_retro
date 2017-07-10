@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 15:58:51 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/09 15:55:06 by rpassafa         ###   ########.fr       */
+/*   Updated: 2017/07/09 18:38:50 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,6 @@ class Env {
 	private:
 		void GameLoop();
 		void EnvInit();
-		enum EnvState { Uninitialized,
-			ShowingMenu, Playing, Exiting };
-		static EnvState _envstate;
 		long long GetTimeMs();
 
 	public:
@@ -36,10 +33,9 @@ class Env {
 		Env& operator=(const Env &src);
 		void Start();
 		void EnvExit();
-		EnvState GetEnvState() const;
-		void  SetEnvState(EnvState &in);
 		static int		_winh;
 		static int		_winw;
+		static int		_health;
 		static const int FPS;
 		static const int SkipTicks;
 		static long long _time;

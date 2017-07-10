@@ -4,7 +4,7 @@
 E_Cluster::E_Cluster() {
   int i;
   i = 0;
-  this->_size = 10;
+  this->_size = 20;
   this->_clust = new Enemy[_size];
   while (i < this->_size) {
     this->_clust[i].Random();
@@ -24,7 +24,10 @@ bool E_Cluster::PlayerCollision(int h, int min_w, int max_w) {
     enemy_h = this->_clust[i].get_h();
     enemy_w = this->_clust[i].get_w();
     if ((abs(enemy_h - h) < 1) && ((enemy_w >= min_w) && (enemy_w <= max_w)))
+	{
+      this->_clust[i].setstate(false);
       return true;
+	}
     ++i;
   }
   return false;
