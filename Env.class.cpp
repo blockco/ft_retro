@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 15:58:42 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/09 17:01:06 by rpassafa         ###   ########.fr       */
+/*   Updated: 2017/07/09 18:06:24 by rpassafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,19 @@ void Env::EnvInit() {
   initscr();
   getmaxyx(stdscr, _winh, _winw);
   win = newwin(_winh, _winw, 0, _winw);
+  if (_winh < 50 || _winh > 80 || _winw < 100 || _winw > 150)
+ {
+	endwin();
+	if (_winh < 50)
+		std::cout << "Window to Short";
+	if (_winh > 80)
+		std::cout << "Window to Tall";
+	if (_winw < 100)
+		std::cout << "Window not wide enough";
+	if (_winw > 150)
+		std::cout << "Window too wide";
+	exit(0);
+  }
   raw();
   keypad(stdscr, TRUE);
   noecho();
