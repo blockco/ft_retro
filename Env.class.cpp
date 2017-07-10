@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 15:58:42 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/09 18:06:24 by rpassafa         ###   ########.fr       */
+/*   Updated: 2017/07/09 18:09:19 by rpassafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,13 @@ void Env::EnvInit() {
  {
 	endwin();
 	if (_winh < 50)
-		std::cout << "Window to Short";
+		std::cout << "Window to Short" << std::endl;
 	if (_winh > 80)
-		std::cout << "Window to Tall";
+		std::cout << "Window to Tall" << std::endl;
 	if (_winw < 100)
-		std::cout << "Window not wide enough";
+		std::cout << "Window not wide enough" << std::endl;
 	if (_winw > 150)
-		std::cout << "Window too wide";
+		std::cout << "Window too wide" << std::endl;
 	exit(0);
   }
   raw();
