@@ -23,7 +23,7 @@ bool E_Cluster::PlayerCollision(int h, int min_w, int max_w) {
     if (this->_clust[i].getstate() == false) return false;
     enemy_h = this->_clust[i].get_h();
     enemy_w = this->_clust[i].get_w();
-    if ((enemy_h == h) && ((enemy_w >= min_w) && (enemy_w <= max_w)))
+    if ((abs(enemy_h - h) < 1) && ((enemy_w >= min_w) && (enemy_w <= max_w)))
       return true;
     ++i;
   }
