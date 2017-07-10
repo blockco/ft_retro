@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/09 12:52:47 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/09 16:20:13 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/09 17:35:36 by rpassafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,16 @@ void Map::UpdateGame(int ch) {
 void Map::PrintGame() {
 	int i = 0;
 	std::string score = std::to_string(Env::_time + Env::_score);
+	std::string h = std::to_string(Env::_winh);
+	std::string w = std::to_string(Env::_winw);
 	while(i < Env::_winw)
 	{
 		mvprintw(5, i, "%s", "=");
 		i++;
 	}
-	mvprintw(2, 40, "%s", score.c_str());
+	mvprintw(2, 2, "Score: %s", score.c_str());
+	mvprintw(3, 2, "height: %s", h.c_str());
+	mvprintw(4, 2, "width: %s", w.c_str());
   rob.Print();
   clust.Print();
 }

@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 18:08:05 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/09 16:52:30 by rpassafa         ###   ########.fr       */
+/*   Updated: 2017/07/09 17:37:46 by rpassafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Player::Player() {
   this->_image = new char[this->_maxwidth];
   strcpy(this->_image, "__^__");
   this->_h = (Env::_winh - 20);
-  this->_w = (Env::_winw - 1) / 2;
+  this->_w = (Env::_winw - 30) / 2;
   this->_bullet_index = 0;
   this->_charlie = new Bullet[BULLET_MAX];
 }

@@ -6,7 +6,7 @@
 /*   By: jkalia <jkalia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/08 17:55:32 by jkalia            #+#    #+#             */
-/*   Updated: 2017/07/09 15:32:20 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/07/09 17:29:53 by rpassafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ public:
 	void seth(int h);
 	int get_w() const;
 	int get_h() const;
-	static float nums[11];
+	static float nums[8];
 };
 #endif
